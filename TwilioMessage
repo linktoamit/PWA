@@ -1,0 +1,13 @@
+const string accountSid = "AC141b5b7629ca02356d8c0c8fdd676441";
+            const string authToken = "fdb5d2608f34b7e8cfbe59b1458660bd";
+            TwilioClient.Init(accountSid, authToken);
+
+            var to = new PhoneNumber("+919718989376");
+            for (int i = 0; i<= 50; i++)
+            {
+                var message = MessageResource.Create(
+                    to,
+                    from: new PhoneNumber("+12289009587"),
+                    body: "This is the message from amit mishra, want to go with me for a drive?");
+                   Console.WriteLine(message.Sid);
+            }
