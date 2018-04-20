@@ -1,0 +1,25 @@
+try
+            {
+                for(int i=0;i<=50;i++)
+                {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 25);
+
+                mail.From = new MailAddress("amitmishr663@gmail.com");
+                mail.To.Add("linktoamitt@gmail.com");
+                mail.Subject = "Test Mail";
+                mail.Body = "This is for testing SMTP mail from GMAIL";
+
+                //SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("amitmishr663@gmail.com", "pandit@1992");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                Console.WriteLine("mail Send");
+               }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            Console.ReadLine();
